@@ -1,4 +1,4 @@
-/*#include <stdio.h>*/
+#include <stdio.h>
 /**
  * Used in a switch case to act as "in" does in Kotlin.
  * Determines if n is inside a range from min to max (including min and max).
@@ -10,14 +10,14 @@
  * @param max end of integer range
  * @return n if it is between min & max;
  * 0 if n is not 0;
- * -1 if n is 0.
+ * 1 if n is 0.
  */
 int value_in_range(int n, int min, int max)
 {
 	if (n >= min && n <= max)
 		return n;
 	if (n != 0)
-		return -1;
+		return 1;
 	return 0;
 }
 
@@ -40,8 +40,6 @@ int bin_to_int(int *bin, int size)
   */
 int main(void)
 {
-
-	return (0);
 	int a = 5;
 	int b = 34;
 	int c = -3;
@@ -128,4 +126,5 @@ int main(void)
 		printf("more than one condition is true.\n");
 		break;
 	}*/
+	return (0);
 }
