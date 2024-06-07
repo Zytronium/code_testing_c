@@ -35,10 +35,9 @@ int binary_to_int(const int *bin, int size)
 
 	for (i = size - 1; i >= 0; --i)
 	{
-		decoded += bin[i] * pow(2, ((i - size) * -1) - 1);
+		decoded += bin[i] * pow(2, ((i - size) * - 1) - 1);
 		/*printf("i = %d\ni - size = %d\n", i, (i - size));*/
 	}
-
 	return (decoded);
 }
 
@@ -49,23 +48,15 @@ int binary_to_int(const int *bin, int size)
   */
 int main(void)
 {
-		 /*int a = 5;
+	int a = 5;
 	int b = 34;
 	int c = -3;
 	char acter = 'd';
-	char coal = 34;*/
+	char coal = 34;
 	int binaryArray[5] = {1, 1, 1, 0, 1};
 	int binarySum = ((binaryArray[0] * 16) + (binaryArray[1] * 8) + (binaryArray[2] * 4) + binaryArray[3] * 2 + binaryArray[4]);
-	  /*int conditions[4] = {(a - c == 8 || coal - acter != c), (a - c == b / 5), (a - b == -29), !(coal - b)};
-	int conditionsNonBinary[4] = {conditions[0] * 8, conditions[1] * 4, conditions[2] * 2, conditions[3]};
-	int condSum = (conditionsNonBinary[0] + conditionsNonBinary[1] + conditionsNonBinary[2] + conditionsNonBinary[3]);*/
-	 /*switch (b - a)
-	{
-	case value_in_range(b - a, 22, 31):
-		printf("b - a is between 22 and 31.\n");
-		break;
-
-	}*/
+	int conditions[4] = {(a - c == 8 || coal - acter != c), (a - c == b / 5), (a - b == -29), !(coal - b)};
+	int conditionsSum = (conditions[0] * 8 + conditions[1] * 4 + conditions[2] * 2 + conditions[3]);
 	/*switch (condSum)
 	{
 	case 0:
@@ -137,8 +128,13 @@ int main(void)
 		break;
 	}*/
 	int binSum =  binary_to_int(binaryArray, 5);
-	printf("decoded binary int: %d\n", binSum);
-	printf("comparison decode: %d\n", binarySum);
-	printf("human-decoded int comparison: 29\n");
+	printf("Decoded binary int: %d\n", binSum);
+	printf("Comparison decode: %d\n", binarySum);
+	printf("Human-decoded int comparison: 29\n\n");
+
+	binSum =  binary_to_int(conditions, 4);
+	printf("Decoded binary int: %d\n", binSum);
+	printf("Comparison decode: %d\n", conditionsSum);
+	printf("Human-decoded int comparison: 11\n");
 	return (0);
 }
