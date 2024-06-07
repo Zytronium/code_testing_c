@@ -54,7 +54,7 @@ int main(void)
 	char acter = 'd';
 	char coal = 34;
 	int binaryArray[5] = {1, 1, 1, 0, 1};
-	int binarySum = ((binaryArray[0] * 16) + (binaryArray[1] * 8) + (binaryArray[2] * 4) + binaryArray[3] * 2 + binaryArray[4]);
+	int binarySum = (binaryArray[0] * 16 + binaryArray[1] * 8 + binaryArray[2] * 4 + binaryArray[3] * 2 + binaryArray[4]);
 	int conditions[4] = {(a - c == 8 || coal - acter != c), (a - c == b / 5), (a - b == -29), !(coal - b)};
 	int conditionsSum = (conditions[0] * 8 + conditions[1] * 4 + conditions[2] * 2 + conditions[3]);
 	/*switch (condSum)
@@ -135,6 +135,6 @@ int main(void)
 	binSum =  binary_to_int(conditions, 4);
 	printf("Decoded binary int: %d\n", binSum);
 	printf("Comparison decode: %d\n", conditionsSum);
-	printf("Human-decoded int comparison: 11\n");
+	printf("Human-decoded int comparison: Segmentation Fault: (\"I'm not evaluating all that!\")\n");
 	return (0);
 }
