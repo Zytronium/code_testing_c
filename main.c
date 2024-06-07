@@ -36,9 +36,8 @@ int binary_to_int(const int *bin, int size)
 	for (i = size - 1; i >= 0; --i)
 	{
 		decoded += bin[i] * pow(2, ((i - size) * -1) - 1);
-		printf("i = %d\ni - size = %d\n", i, (i - size));
+		/*printf("i = %d\ni - size = %d\n", i, (i - size));*/
 	}
-
 
 	return (decoded);
 }
