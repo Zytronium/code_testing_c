@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 /**
  * Used in a switch case to act as "in" does in Kotlin.
  * Determines if n is inside a range from min to max (including min and max).
@@ -22,15 +23,24 @@ int value_in_range(int n, int min, int max)
 }
 
  /**
-  * This decodes an array of binary digits into an integer. Size can be no longer than
-  * [sizeOf(int i = 0);] bits of data, or it may encounter an int overflow and fails.
+  * This decodes an array of binary digits into an integer.
   * @param bin sequence of 1s and 0s as an int array.
   * @param size size of the int array of binary digits. (how many digits)
   * @return decoded integer value.
   */
-int bin_to_int(int *bin, int size)
+int binary_to_int(const int *bin, int size)
 {
+	int decoded = 0;
+	int i;
 
+	for (i = size - 1; i >= 0; --i)
+	{
+		decoded += bin[i] * pow(2, ((i - size) * -1) - 1);
+		printf("i = %d\ni - size = %d\n", i, (i - size));
+	}
+
+
+	return (decoded);
 }
 
  /**
@@ -40,22 +50,23 @@ int bin_to_int(int *bin, int size)
   */
 int main(void)
 {
-	int a = 5;
+		 /*int a = 5;
 	int b = 34;
 	int c = -3;
 	char acter = 'd';
-	char coal = 34;
-	int conditions[4] = {(a - c == 8 || coal - acter != c) * 8, (a - c == b / 5) * 4, (a - b == -29) * 2, !(coal - b)};
-	int condSum = (conditions[0] + conditions[1] + conditions[2] + conditions[3]);
-
-	/*switch (b - a)
+	char coal = 34;*/
+	int binaryArray[5] = {1, 1, 1, 0, 1};
+	int binarySum = ((binaryArray[0] * 16) + (binaryArray[1] * 8) + (binaryArray[2] * 4) + binaryArray[3] * 2 + binaryArray[4]);
+	  /*int conditions[4] = {(a - c == 8 || coal - acter != c), (a - c == b / 5), (a - b == -29), !(coal - b)};
+	int conditionsNonBinary[4] = {conditions[0] * 8, conditions[1] * 4, conditions[2] * 2, conditions[3]};
+	int condSum = (conditionsNonBinary[0] + conditionsNonBinary[1] + conditionsNonBinary[2] + conditionsNonBinary[3]);*/
+	 /*switch (b - a)
 	{
 	case value_in_range(b - a, 22, 31):
 		printf("b - a is between 22 and 31.\n");
 		break;
 
 	}*/
-
 	/*switch (condSum)
 	{
 	case 0:
@@ -126,5 +137,9 @@ int main(void)
 		printf("more than one condition is true.\n");
 		break;
 	}*/
+	int binSum =  binary_to_int(binaryArray, 5);
+	printf("decoded binary int: %d\n", binSum);
+	printf("comparison decode: %d\n", binarySum);
+	printf("human-decoded int comparison: 29\n");
 	return (0);
 }
